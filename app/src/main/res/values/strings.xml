@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HelloSensor</string>
+    <string name="Hello_Sensor">Hello sensor!</string>
+    <string name="Compass">Compass</string>
 </resources>
