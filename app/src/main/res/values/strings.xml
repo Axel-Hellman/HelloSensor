@@ -3,4 +3,8 @@
     <string name="Compass">Compass</string>
     <string name="Accelerometer">Accelerometer</string>
     <string name="TextView_HelloSensor">Hello sensor!</string>
+    <string name="Acc_text">Accelerometer values:</string>
+    <string name="X_text">X:</string>
+    <string name="Y_text">Y:</string>
+    <string name="Z_text">Z:</string>
 </resources>
