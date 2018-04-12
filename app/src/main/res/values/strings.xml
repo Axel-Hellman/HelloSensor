@@ -7,4 +7,6 @@
     <string name="X_text">X:</string>
     <string name="Y_text">Y:</string>
     <string name="Z_text">Z:</string>
+    <string name="Developer_txt">Sample text</string>
+    <string name="Riktning_txt">Riktning</string>
 </resources>

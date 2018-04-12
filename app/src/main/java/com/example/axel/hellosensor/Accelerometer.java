@@ -14,12 +14,15 @@ public class Accelerometer extends AppCompatActivity implements SensorEventListe
     TextView txt_X;
     TextView txt_Y;
     TextView txt_Z;
+    TextView txt_Pich;
+    TextView txt_Roll;
     private SensorManager mSensorManager;
     private Sensor accelerometer;
     private float lastX, lastY, lastZ;
     private float deltaX = 0;
     private float deltaY = 0;
     private float deltaZ = 0;
+    private String dirText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +34,18 @@ public class Accelerometer extends AppCompatActivity implements SensorEventListe
         txt_X = (TextView) findViewById(R.id.xValue);
         txt_Y = (TextView) findViewById(R.id.yValue);
         txt_Z = (TextView) findViewById(R.id.zValue);
+        txt_Pich = (TextView) findViewById(R.id.direction);
+        txt_Roll = (TextView) findViewById(R.id.direction2);
     }
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-
+        // For pitch and roll
+        double pich;
+        double roll;
+        double mX = lastX;
+        double mY = lastY;
+        double mZ = lastZ;
 
         // get the change of the x,y,z values of the accelerometer
         deltaX = Math.abs(lastX - event.values[0]);
@@ -58,6 +68,25 @@ public class Accelerometer extends AppCompatActivity implements SensorEventListe
         txt_X.setText(Float.toString(deltaX));
         txt_Y.setText(Float.toString(deltaY));
         txt_Z.setText(Float.toString(deltaZ));
+
+        pich = Math.atan2(mY, mZ);
+        roll = Math.atan2((- mX), Math.sqrt(mY * mY + mY * mZ));
+
+        if(pich > 0 ){
+            txt_Pich.setText("Upp");
+        }
+        else if (pich < 0){
+            txt_Pich.setText("Down");
+        }
+
+        if(roll > 0 ){
+            txt_Roll.setText("Right");
+        }
+        else if (roll < 0){
+            txt_Roll.setText("Left");
+        }
+
+
 
     }
 
